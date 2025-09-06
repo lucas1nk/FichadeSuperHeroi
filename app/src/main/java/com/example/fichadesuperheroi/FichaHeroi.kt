@@ -26,7 +26,7 @@ class FichaHeroiActivity : AppCompatActivity() {
         txtAlinhamento = findViewById(R.id.txtAlinhamento)
         txtPoderes = findViewById(R.id.txtPoderes)
         btnEditar = findViewById(R.id.btnEditar)
-        rootLayout = findViewById(R.id.rootLayoutFicha) // layout raiz da tela 3
+        rootLayout = findViewById(R.id.rootLayoutFicha) 
 
         val codinome = intent.getStringExtra("codinome") ?: "Não definido"
         val alinhamento = intent.getStringExtra("alinhamento") ?: "Não definido"
@@ -38,7 +38,7 @@ class FichaHeroiActivity : AppCompatActivity() {
         txtPoderes.text = "Poderes: ${if (poderes.isNotEmpty()) poderes.joinToString(", ") else "Nenhum"}"
         imgAvatarFinal.setImageResource(avatarResId)
 
-        // --- DESAFIO 2: mudar cor do fundo conforme alinhamento ---
+        
         when (alinhamento) {
             "Herói" -> rootLayout.setBackgroundColor(getColor(android.R.color.holo_blue_light))
             "Vilão" -> rootLayout.setBackgroundColor(getColor(android.R.color.holo_red_light))
@@ -46,7 +46,7 @@ class FichaHeroiActivity : AppCompatActivity() {
             else -> rootLayout.setBackgroundColor(getColor(android.R.color.white))
         }
 
-        // Botão Editar -> voltar para Tela 2
+        
         btnEditar.setOnClickListener {
             val intent = Intent(this, Criacaoheroi::class.java)
 
