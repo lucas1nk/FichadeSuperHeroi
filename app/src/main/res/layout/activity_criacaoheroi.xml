@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+
+        <TextView
+            android:id="@+id/txtBoasVindas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Personalize o perfil de: "
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp" />
+
+
+        <RadioGroup
+            android:id="@+id/rgAlinhamento"
+            android:layout_width="wrap_content"
+            android:layout_height="120dp">
+
+            <RadioButton
+                android:id="@+id/rbHeroi"
+                android:layout_width="wrap_content"
+                android:layout_height="37dp"
+                android:text="Herói" />
+
+            <RadioButton
+                android:id="@+id/rbVilao"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="Vilão" />
+
+            <RadioButton
+                android:id="@+id/rbAntiHeroi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Anti-herói" />
+        </RadioGroup>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Escolha seus poderes:"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold" />
+
+        <CheckBox
+            android:id="@+id/cbVoo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Voo" />
+
+        <CheckBox
+            android:id="@+id/cbForca"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="Super-força" />
+
+        <CheckBox
+            android:id="@+id/cbTelepatia"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="Telepatia" />
+
+        <CheckBox
+            android:id="@+id/cbRajadas"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:text="Rajadas de Energia" />
+
+        <CheckBox
+            android:id="@+id/cbVelocidade"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text="Super-velocidade" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Escolha seu Avatar:"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imgAvatar"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/superman"
+            android:layout_margin="20dp" />
+
+
+        <Button
+            android:id="@+id/btnGerarFicha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gerar Ficha" />
+
+    </LinearLayout>
+</ScrollView>
