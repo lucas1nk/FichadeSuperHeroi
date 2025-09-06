@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         btnCriarPerfil = findViewById(R.id.btnCriarPerfil)
         prefs = getSharedPreferences("meuArquivo", MODE_PRIVATE)
 
-        // Recuperar o último herói completo
+        
         val heroiJson = prefs.getString("ultimoHeroi", null)
         if (heroiJson != null) {
             val gson = Gson()
