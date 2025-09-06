@@ -47,16 +47,14 @@ class Criacaoheroi : AppCompatActivity() {
         val prefs = getSharedPreferences("meuArquivo", MODE_PRIVATE)
         val gson = Gson()
 
-        // ===== Passo 4: recuperar o último herói salvo =====
+        
         val heroiJson = prefs.getString("ultimoHeroi", null)
         val heroi = if (heroiJson != null) gson.fromJson(heroiJson, Heroi::class.java) else null
-        // =====================================================
-
-        // Recuperar o codinome passado da MainActivity ou do herói salvo
+        
         val codinome = intent.getStringExtra("codinome") ?: heroi?.codinome
         txtBoasVindas.text = "Personalize o perfil de: $codinome"
 
-        // Restaurar alinhamento
+        
         val alinhamentoSalvo = heroi?.alinhamento
         alinhamentoSalvo?.let {
             when(it) {
@@ -66,7 +64,6 @@ class Criacaoheroi : AppCompatActivity() {
             }
         }
 
-        // Restaurar poderes
         val poderesSalvos = heroi?.poderes ?: emptyList()
         cbVoo.isChecked = poderesSalvos.contains("Voo")
         cbForca.isChecked = poderesSalvos.contains("Super-força")
@@ -74,18 +71,16 @@ class Criacaoheroi : AppCompatActivity() {
         cbRajadas.isChecked = poderesSalvos.contains("Rajadas de Energia")
         cbVelocidade.isChecked = poderesSalvos.contains("Super-velocidade")
 
-        // Restaurar avatar
+       
         avatarIndex = if (heroi != null) avatares.indexOf(heroi.avatarResId) else 0
         if (avatarIndex == -1) avatarIndex = 0
         imgAvatar.setImageResource(avatares[avatarIndex])
 
-        // Trocar avatar ao clicar
         imgAvatar.setOnClickListener {
             avatarIndex = (avatarIndex + 1) % avatares.size
             imgAvatar.setImageResource(avatares[avatarIndex])
         }
 
-        // Gerar ficha e salvar herói completo
         btnGerarFicha.setOnClickListener {
             val selecionadoId = rgAlinhamento.checkedRadioButtonId
             val alinhamentoEscolhido = if (selecionadoId != -1)
@@ -102,11 +97,9 @@ class Criacaoheroi : AppCompatActivity() {
 
             val avatarAtual = avatares[avatarIndex]
 
-            // Salvar herói completo no SharedPreferences
             val novoHeroi = Heroi(codinome ?: "Não definido", alinhamentoEscolhido, listaPoderes, avatarAtual)
             prefs.edit().putString("ultimoHeroi", gson.toJson(novoHeroi)).apply()
 
-            // Ir para a FichaHeroiActivity
             val intent = Intent(this, FichaHeroiActivity::class.java)
             intent.putExtra("codinome", codinome)
             intent.putExtra("alinhamento", alinhamentoEscolhido)
